@@ -103,7 +103,7 @@ class App:
         self.root.bind('<KeyPress>', self.keyPressed)
         self.root.bind("<KeyRelease>",self.keyReleased)
 
-    def keyPressed(self,e):
+    def keyPressed(self,e):#mukhtada
         self.char = e.char
         self.canvas.itemconfigure(self.charWidget,text=self.char)
     def keyReleased(self,e):
@@ -280,7 +280,7 @@ class App:
         main_window_width = self.root.winfo_width()
         main_window_height = self.root.winfo_height()
         popup_width = 200
-        popup_height = 300
+        popup_height = 300#mukhtada
         x = self.root.winfo_rootx() + self.root.winfo_width() // 2 - popup_width // 2
         y = self.root.winfo_rooty() + self.root.winfo_height() // 2 - popup_height // 2
 
