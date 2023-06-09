@@ -205,9 +205,11 @@ class App:
     def save_input(self,e):
         self.currentInput = self.entry_var.get()
         self.cancel = False
-        if self.toDestroy:
-            self.root.unbind_all('<Configure>')
-            self.popup.destroy()
+        if self.currentInput:
+            if self.toDestroy:
+                self.root.unbind_all('<Configure>')
+                self.popup.destroy()
+                
     def create_popup(self,e):
         self.popup = tk.Toplevel(self.root)
         self.popup.title("Popup Window")
@@ -385,8 +387,11 @@ class App:
                         cfont = font.Font(size=15)
                         self.lineList.append(self.canvas.create_line(self.onFocus.x, self.onFocus.y, master.x, master.y,width=3,fill='light gray'))
                         distance = self.currentInput if self.currentInput else 0
-                        lineDistance = math.sqrt((master.x-self.onFocus.x)**2+(master.y-self.onFocus.y))
-
+                        try:
+                            lineDistance = math.sqrt((master.x-self.onFocus.x)**2+(master.y-self.onFocus.y))
+                        except ValueError:
+                            lineDistance = math.sqrt((self.onFocus.x-master.x)**2+(self.onFocus.y-master.y))
+                        
                         reduced_length = lineDistance / 2
 
                         # Find the new endpoint coordinates
