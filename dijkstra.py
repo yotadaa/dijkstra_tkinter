@@ -2,8 +2,6 @@ import heapq
 import tkinter as tk
 from tkinter import font
 import math
-from pprint import pprint
-
 
 class TableForm(tk.Frame):
     def __init__(self, master, data):
@@ -23,7 +21,6 @@ class TableForm(tk.Frame):
         for row in range(self.rows):
             for col in range(self.columns):
                 attribute_value = self.data[row][list(self.data[0].keys())[col]]
-                print(type(attribute_value))
                 if type(attribute_value) == list:
                     attribute_value = [i.nama for i in attribute_value]
                 elif type(attribute_value) == Node:
